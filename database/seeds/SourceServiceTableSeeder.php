@@ -317,6 +317,18 @@ EOF;
             'user_editable' => 1,
             'rules' => 'required|numeric|digits_between:1,4',
         ]);
+        
+        ServiceVariable::updateOrCreate([
+            'option_id' => $this->option['ark']->id,
+            'env_variable' => 'SERVER_QUERY_PORT',
+        ], [
+            'name' => 'Server Query Port',
+            'description' => 'Specified the query port required for the server to run.',
+            'default_value' => 27015,
+            'user_viewable' => 1,
+            'user_editable' => 1,
+            'rules' => 'required|numeric|digits_between:1,6',
+        ]);
     }
 
     private function addCustomVariables()
